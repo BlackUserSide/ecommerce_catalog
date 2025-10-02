@@ -2,15 +2,12 @@
 import React from 'react';
 import { Carousel } from '../../ui/Carousel/Carousel';
 import classes from './ProductCarousel.module.scss';
-import cs from '../../ui/Buttons/Button/Button.module.scss';
-
+import { LeftButton } from '../../ui/Button/LeftButton/LeftButton';
+import { RightButton } from '../../ui/Button/RightButton/RightButton';
 import { Product } from '@/app/types/product';
 import { useAppSelector } from '@/app/stores/hooks';
 import { sortProductsForCarousel } from '@/app/helpers/products/sortProductsForCarousel';
 import { shuffleArray } from '@/app/helpers/products/relatedProducts';
-import { Button } from '../../ui/Buttons/Button/Button';
-import { ArrowLeft } from '../../ui/Icons/ArrowLeft';
-import { ArrowRight } from '../../ui/Icons/ArrowRight';
 type Props = {
   title?: string;
   param?: keyof Product;
@@ -29,14 +26,10 @@ export function ProductsCarousel({ title = 'Brand new models', param = 'year', p
         <h2 className="section-title">{title}</h2>
         <div className={classes.carousel_navigation}>
           <div className={customLeft}>
-            <Button styles={cs.nav_button__active}>
-              <ArrowLeft />
-            </Button>
+            <LeftButton />
           </div>
           <div className={customRight}>
-            <Button styles={cs.nav_button__active}>
-              <ArrowRight />
-            </Button>
+            <RightButton />
           </div>
         </div>
       </div>

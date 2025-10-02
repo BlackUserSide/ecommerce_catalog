@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import classes from './OrderSummary.module.scss';
-import { Button } from '../Buttons/Button/Button';
+import { OrderSubmitButton } from '@/app/components/ui/Button/OrderSubmitButton/OrderSubmitButton';
 
 type ShortItem = {
   itemId: string;
@@ -121,9 +121,12 @@ export function OrderSummary({
         </div>
       </div>
 
-      <Button onClick={handlePlaceOrderClick} styles={getButtonClass()}>
-        Place Order
-      </Button>
+      <OrderSubmitButton
+        label="Place Order"
+        onClick={handlePlaceOrderClick}
+        className={getButtonClass()}
+      />
+
       {renderError()}
     </div>
   );
